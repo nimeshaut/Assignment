@@ -4,12 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prestart": "echo \"Starting development server for Assignment 1B\"",
+    "start": "node buildScripts/expressServer.js",
+    "test": "mocha --reporter progress buildScripts/mochaSetup.js \"src/**/*",
+    "security-check": "nsp check"
   },
-  "author": "",
+  "author": "Nimesh Trivedi",
   "license": "ISC",
   "devDependencies": {
-    "express": "^4.17.1"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-latest": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.0",
+    "webpack": "^4.39.2",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
     "open": "^6.4.0"
