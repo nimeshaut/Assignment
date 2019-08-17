@@ -8,7 +8,7 @@ var app = new express(); // create instance of express
 
 // tell express which routes it is going to handle
 app.get('/', function (request, response) {
-    response.sendFile(path.join(__dirname, '../src/index.html'))
+    response.sendFile(path.join(__dirname, '../public/index.html'))
 });
 
 
