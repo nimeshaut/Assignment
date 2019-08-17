@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prestart": "echo \"Starting development server for Assignment 1B\"",
-    "startOld": "npm-run-all --parallel security-check open:src test:watch",
-    "start": "nodemon --exec babel-node buildScripts/expressServer.js --ignore public/",
+    "start": "npm-run-all --parallel security-check open:src test:watch",
+    "startTest": "nodemon --exec babel-node buildScripts/expressServer.js --ignore public/",
     "dev": "webpack -wd",
     "open:src": "babel-node buildScripts/expressServer.js",
     "test": "mocha --reporter progress buildScripts/mochaSetup.js \"src/**/*.test.js\"",
@@ -26,6 +26,8 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-latest": "^6.24.1",
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
@@ -42,6 +44,7 @@
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
+    "ejs": "^2.6.2",
     "express": "^4.17.1",
     "mongodb": "^3.3.0",
     "open": "^6.4.0",
