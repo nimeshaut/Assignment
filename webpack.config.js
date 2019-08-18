@@ -5,7 +5,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    use: [
+    rules: [
       {
         test: /\.json$/,
         loader: 'json-loader'
