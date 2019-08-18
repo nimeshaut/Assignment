@@ -25,6 +25,7 @@ import apiRouter from '../api';
 var express = require('express'); // variable to hold express
 var path = require('path'); // variable to hold path
 var open = require('open'); // variable to hold open
+import serverRender from './serverRender';
 
 var port = config.port; // var to hold port from which express is going to use and serve
 
@@ -36,11 +37,23 @@ app.set('view engine','ejs');
 //     //response.sendFile(path.join(__dirname, '../public/index.html'))
 //     response.render('index');
 // });
+// app.get('/', (req, res) => {
+//     res.render('index', {
+//       content: 'Hello Express and <em>EJS</em>'
+//     });
+//   });
+
+
 app.get('/', (req, res) => {
-    res.render('index', {
-      content: 'Hello Express and <em>EJS</em>'
-    });
-  });
+  serverRender()
+    .then(({ initialMarkup, initialData }) => {
+      res.render('index', {
+        initialMarkup,
+        initialData
+      });
+    })
+    .catch(console.error);
+});
 
 app.use('/api', apiRouter);
 app.use(express.static('public'));
